@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - Kanban Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">TaskFlow<span>.</span></div>
+
+        <div class="nav-links">
+            <a href="#" class="active">Board</a>
+            <a href="#">My Tasks</a>
+            <a href="#">Projects</a>
+        </div>
+
+        <div class="nav-right">
+            <div class="avatar">A</div>
+            <button class="add-btn">+ Add Task</button>
+        </div>
+    </nav>
+
+    <!-- Main Dashboard -->
+    <main class="dashboard">
+
+        <div class="header">
+            <div>
+                <p class="subtitle">WORKSPACE / PROJECTS</p>
+                <h1>My Dashboard</h1>
+                <p class="description">Organize your work and keep track of your progress.</p>
+            </div>
+        </div>
+
+        <!-- Dashboard Counts -->
+        <section class="stats">
+
+            <div class="stat-card">
+                <div class="stat-icon todo-icon">☰</div>
+                <div>
+                    <p>To Do</p>
+                    <h2 id="dash-todo-count">0</h2>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon progress-icon">◷</div>
+                <div>
+                    <p>In Progress</p>
+                    <h2 id="dash-todo-in-progressCount">0</h2>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon done-icon">✓</div>
+                <div>
+                    <p>Completed</p>
+                    <h2 id="dash-todo-completed-count">0</h2>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Kanban Board -->
+        <section class="kanban-board">
+
+            <!-- To Do Column -->
+            <div class="kanban-column">
+                <div class="column-header">
+                    <div class="column-title">
+                        <span class="dot todo-dot"></span>
+                        <h3>To Do</h3>
+                        <span class="count" id="todo_count">0</span>
+                    </div> 
+                </div>
+                
+                <div class="task-list" id="todo_tasklist">
+                    <p id="p" style="display: flex; align-items: center; justify-content: center;">Add Your Todo's</p>
+                </div>
+            </div>
+
+            <!-- In Progress Column -->
+            <div class="kanban-column">
+                <div class="column-header">
+                    <div class="column-title">
+                        <span class="dot progress-dot"></span>
+                        <h3>In Progress</h3>
+                        <span class="count" id="progressCount">0</span>
+                    </div>
+                </div>
+
+                <div class="task-list" id="inProgress_tasklist">
+                    <p id="p2" style="display: flex; align-items: center; justify-content: center;">No Todo's in Progress</p>
+
+                </div>
+            </div>
+
+            <!-- Done Column -->
+            <div class="kanban-column">
+                <div class="column-header">
+                    <div class="column-title">
+                        <span class="dot done-dot"></span>
+                        <h3>Done</h3>
+                        <span class="count" id="doneCount">0</span>
+                    </div>
+                </div>
+
+                <div class="task-list" id="done_tasklist">
+
+                    <p id="p3" style="display: flex; align-items: center; justify-content: center;">Any Todo's not done yet</p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+
+<!-- Add Task Modal -->
+<div class="modal" id="task-modal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h2>Add New Task</h2>
+            <button class="close-btn" id="close-modal">&times;</button>
+        </div>
+
+        <form id="task-form">
+
+            <!-- Title -->
+            <div class="form-group">
+                <label for="task-title">Task Title</label>
+                <input type="text" id="task-title" placeholder="Enter task title" required>
+            </div>
+
+            <!-- Description -->
+            <div class="form-group">
+                <label for="task-description">Description</label>
+                <textarea id="task-description" placeholder="Enter task description" rows="4" required></textarea>
+            </div>
+
+            <!-- Category -->
+            <div class="form-group">
+                <label for="task-category">Category</label>
+                <select id="task-category" required>
+                    <option value="" disabled selected>Select category</option>
+                    <option value="Frontend">Frontend</option>
+                    <option value="Backend">Backend</option>
+                    <option value="UI/UX">UI/UX</option>
+                    <option value="Database">Database</option>
+                    <option value="Testing">Testing</option>
+                    <option value="Deployment">Deployment</option>
+                    <option value="Documentation">Documentation</option>
+                </select>
+            </div>
+
+            <!-- Priority -->
+            <div class="form-group">
+                <label for="task-priority">Priority</label>
+                <select id="task-priority" required>
+                    <option value="" disabled selected>Select priority</option>
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                </select>
+            </div>
+
+            <!-- Buttons -->
+            <div class="form-buttons">
+                <button type="button" class="cancel-btn" id="cancel-task">Cancel</button>
+                <button type="submit" class="save-btn">Add Task</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+
+</html>
